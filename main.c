@@ -2,20 +2,14 @@
 
 int main() {
     printf("Listing All Files Regularly:\n");
-    DIR *direct;
-    if (!(direct = opendir("."))) {
-        printf("Errno: %s\n", strerror(errno));
-        return errno;
-    }
-
-    struct dirent *file;
-    while (file = readdir(direct)) {
-        printf("\t%s\ttype: %c\n", file->d_name, file->d_type);
-    }
+    char *test;
+    strcpy(test, ".");
+    list_files_reg(".");
 
     printf("\nListing All Files Specially:\n");
-    closedir(direct);
     //doing directories first
+    DIR *direct;
+    struct dirent *file;
     if (!(direct = opendir("."))) {
         printf("Errno: %s\n", strerror(errno));
         return errno;

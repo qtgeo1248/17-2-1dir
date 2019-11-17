@@ -8,3 +8,5 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <dirent.h>
+
+int list_files_reg(char *dir);
