@@ -11,3 +11,6 @@
 
 int list_files_reg(char *dir);
 int list_files_type(char *dir);
+int dir_size(char *dir);
+int list_files_rec(char *dir, char *tabs);
+int dir_size_rec(char *dir);
