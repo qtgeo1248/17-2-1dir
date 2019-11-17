@@ -1,8 +1,6 @@
 #include "direct.h"
 
 int main() {
-    DIR *direct;
-    struct dirent *file;
     char test[256] = ".";
     printf("STATISTICS FOR: %s\n", test);
 
@@ -40,4 +38,6 @@ int main() {
     } else {
         printf("\nSIZE OF EVERYTHING INSIDE (excluding . and ..): %d bytes\n", size);
     }
+
+    printf("\nDo the makefile with TROLL=true for the biggest troll ever :)\n");
 }

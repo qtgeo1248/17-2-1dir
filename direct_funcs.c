@@ -23,6 +23,7 @@ int dir_size(char *dir) {
             strcpy(true_name, "");
         }
     }
+    closedir(direct);
     return size;
 }
 
@@ -37,6 +38,7 @@ int list_files_reg(char *dir) {
         printf("\t%s\n", file->d_name);
     }
     return 0;
+    closedir(direct);
 }
 
 int list_files_type(char *dir) {
@@ -64,6 +66,7 @@ int list_files_type(char *dir) {
             printf("\t%s\n", file->d_name);
         }
     }
+    closedir(direct);
     return 0;
 }
 
@@ -87,6 +90,7 @@ int list_files_rec(char *dir, char *tabs) {
             list_files_rec(true_name, newtabs);
         }
     }
+    closedir(direct);
     return 0;
 }
 
@@ -113,12 +117,13 @@ int dir_size_rec(char *dir) {
             strcpy(true_name, "");
         }
         if ((file->d_type == DT_DIR) && (strcmp(file->d_name, ".") != 0) && (strcmp(file->d_name, "..") != 0)) {
-            char true_name[1000] = "";
+            char true_name[10000] = "";
             strcat(true_name, dir);
             strcat(true_name, "/");
             strcat(true_name, file->d_name);
             size += dir_size_rec(true_name);
         }
     }
+    closedir(direct);
     return size;
 }
