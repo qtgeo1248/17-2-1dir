@@ -1,35 +1,20 @@
 #include "direct.h"
 
 int main() {
-    printf("Listing All Files Regularly:\n");
-    char *test;
-    strcpy(test, ".");
-    list_files_reg(".");
-
-    printf("\nListing All Files Specially:\n");
-    //doing directories first
     DIR *direct;
     struct dirent *file;
-    if (!(direct = opendir("."))) {
+    char test[256] = ".";
+    printf("STATISTICS FOR: %s\n", test);
+
+    printf("\nLISTING ALL FILES REGULARLY\n");
+    if (list_files_reg(test) > 0) {
         printf("Errno: %s\n", strerror(errno));
-        return errno;
     }
-    printf("Directories:\n");
-    while (file = readdir(direct)) {
-        if (file->d_type == DT_DIR) {
-            printf("\t%s\n", file->d_name);
-        }
-    }
-    //doing files next
-    closedir(direct);
-    if (!(direct = opendir("."))) {
+
+    printf("\nLISTING ALL FILES SPECIALLY\n");
+    if (list_files_type(test) > 0) {
         printf("Errno: %s\n", strerror(errno));
-        return errno;
     }
-    printf("Files:\n");
-    while (file = readdir(direct)) {
-        if (file->d_type == DT_REG) {
-            printf("\t%s\n", file->d_name);
-        }
-    }
+
+
 }

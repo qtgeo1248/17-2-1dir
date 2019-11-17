@@ -10,3 +10,4 @@
 #include <dirent.h>
 
 int list_files_reg(char *dir);
+int list_files_type(char *dir);
