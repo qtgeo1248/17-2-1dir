@@ -117,7 +117,7 @@ int dir_size_rec(char *dir) {
             strcpy(true_name, "");
         }
         if ((file->d_type == DT_DIR) && (strcmp(file->d_name, ".") != 0) && (strcmp(file->d_name, "..") != 0)) {
-            char true_name[10000] = "";
+            char true_name[1000] = "";
             strcat(true_name, dir);
             strcat(true_name, "/");
             strcat(true_name, file->d_name);
