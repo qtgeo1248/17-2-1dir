@@ -3,7 +3,8 @@
 int main(int argc, char *arbv[]) {
     char *test;
     if (argc == 1) {
-        test = ".";
+        printf("Please provide a directory in your command line\n");
+        return 1;
     } else {
         char buf[256];
         strcpy(buf, arbv[1]);
