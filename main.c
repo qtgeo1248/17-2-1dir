@@ -3,10 +3,13 @@
 int main(int argc, char *arbv[]) {
     char *test;
     if (argc == 1) {
-        printf("Please provide a directory in your command line\n");
-        return 1;
+        printf("Please provide a directory:\n");
+        char buf[1000];
+        fgets(buf, 1000, stdin);
+        buf[strlen(buf) - 1] = 0;
+        test = buf;
     } else {
-        char buf[256];
+        char buf[1000];
         strcpy(buf, arbv[1]);
         test = buf;
     }
