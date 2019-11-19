@@ -6,7 +6,7 @@ int main() {
     char tabs[1000] = "   ";
     if (list_files_rec(test, tabs) < 0) {
         printf("Errno: %s\n", strerror(errno));
-        return 1;
+        return errno;
     }
     return 0;
 }
