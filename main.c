@@ -7,7 +7,7 @@ int main(int argc, char *arbv[]) {
     } else {
         char buf[256];
         strcpy(buf, arbv[1]);
-        test = &buf;
+        test = buf;
     }
     printf("STATISTICS FOR: %s\n", test);
 
